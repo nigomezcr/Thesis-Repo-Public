@@ -54,19 +54,22 @@ def plot_BNL():
     plt.plot(aBNL, 1.8, 'v', color=BNL_color)
     plt.hlines(1.8, xmin=aBNL - sig_aBNL, xmax=aBNL + sig_aBNL, colors=BNL_color)
     plt.text(aBNL - 0.2, 1.85, 'BNL', color=BNL_color, fontdict=font)
-    plt.savefig('FlavourPlots/g-2 - measurements1.png')
+    plt.savefig('FlavourPlots/MuonMoment-Measurements1.svg')
 
 #FNAl '21
 def plot_FNAL21():
     plt.plot(aFNAL21, 1.6, 'o', color=FNAL_color)
     plt.hlines(1.6, xmin=aFNAL21 - sig_aFNAL21, xmax=aFNAL21 + sig_aFNAL21, colors=FNAL_color)
     plt.text(aFNAL21 - sig_aFNAL21, 1.65, 'FNAL Run 1', color=FNAL_color, fontdict=font)
+    plt.savefig('FlavourPlots/MuonMoment-Measurements2.svg')
+
 
 #FNAL '23
 def plot_FNAL23():
     plt.plot(aFNAL23, 1.4, 'o', color=FNAL_color)
     plt.hlines(1.4, xmin=aFNAL23 - sig_aFNAL23, xmax=aFNAL23 + sig_aFNAL23, colors=FNAL_color)
     plt.text(aFNAL23 - sig_aFNAL23, 1.45, 'FNAL Run 2/3', color=FNAL_color, fontdict=font)
+    plt.savefig('FlavourPlots/MuonMoment-Measurements3.svg')
 
 # EXP
 def plot_EXP_average():
@@ -74,7 +77,14 @@ def plot_EXP_average():
     plt.hlines(1.2, xmin=aEXP - sig_aEXP, xmax=aEXP + sig_aEXP, colors=EXP_color)
     plt.fill_betweenx(y=[0.8, 2], x1=aEXP - sig_aEXP, x2=aEXP + sig_aEXP, color=EXP_color, alpha=alph)
     plt.text(aEXP - sig_aEXP - 0.2, 1.25, 'Exp Average', color=EXP_color, fontdict=font)
+    plt.savefig('FlavourPlots/MuonMoment-Measurements.svg')
 
 
-plot_SM()
-plot_BNL()
+def Plot_All():
+    plot_SM()
+    plot_BNL()
+    plot_FNAL21()
+    plot_FNAL23()
+    plot_EXP_average()
+
+Plot_All()
