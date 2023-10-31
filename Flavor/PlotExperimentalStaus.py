@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import PlotSettings as ps
+plt.rcdefaults()
 
 # Anomalous magnetic moment results from theory and experiment
 aSM = 18.04
