@@ -135,6 +135,57 @@ def Which_Plot(Set_option):
     sig2Color2 = ps.BackgroundColor2
     sig1Color2 = ps.MainColor2
 
+    # Exclusion region
+    if Leptoquark == 'S3':
+        DDcolor = ps.Gray1
+        ysMin = 0.43
+        plt.hlines(ysMin, yb[0], yb[-1], color=  DDcolor)
+        plt.fill_between(yb, ysMin, 1, color=DDcolor, alpha=ps.RegionAlpha)
+        plt.text(1e-2, 6e-1, '$D - \overline{D}$', color='k')
+
+        KnuColor = ps.Gray2
+        plt.plot(Knu_x, Knu_y, color=KnuColor)
+        plt.fill_between(Knu_x, Knu_y, 1, color=KnuColor, alpha= ps.RegionAlpha)
+        plt.text(3e-1, 2.5e-1, r'$B  \rightarrow K^* \nu \nu $', color='k', rotation=-47 )
+
+        bmuColor = ps.Gray2
+        plt.plot(bmu_x, bmu_y, color=bmuColor)
+        plt.fill_between(bmu_x, 1e-2, bmu_y, color=bmuColor, alpha= ps.RegionAlpha)
+        plt.text(1e-1, 3e-2, r'$b\overline{b}\rightarrow \mu \overline{\mu} $', color='k', rotation= 48)
+
+        pptommColor = ps.Gray1
+        ybMin = 0.72
+        plt.vlines(ybMin, ys[0], ys[-1], color = pptommColor)
+        plt.fill_betweenx(ys, ybMin, 1, color = pptommColor, alpha=ps.RegionAlpha)
+        plt.text(7.5e-1, 4e-2, r'$pp \rightarrow \mu \mu $', color='k', rotation='vertical' )
+
+
+    if Leptoquark == 'S1':
+        ppttColor = ps.Gray1
+        ycMin = 1
+        plt.hlines(ycMin, yt[0], yt[-1], color= ppttColor )
+        plt.fill_between(yt, ycMin, 1.6, color=ppttColor, alpha=ps.RegionAlpha)
+        plt.text(0.3, 1.3, r'$pp \rightarrow \tau \tau$',  color='k')
+
+        ZtautauColor = ps.Gray2
+        ybMin = 1.2
+        plt.vlines(ybMin, yt[0], yt[-1], color = ZtautauColor)
+        plt.fill_betweenx(yt, ybMin, 1.6, color = ZtautauColor, alpha=ps.RegionAlpha)
+        plt.text(1.22, 0.5, r'$Z \rightarrow \tau \tau $',  color= 'k', rotation='vertical' )
+
+
+        TaunuColor = ps.Gray1
+        plt.plot(Tanu_x, Tanu_y, color=TaunuColor)
+        plt.fill_between(Tanu_x, Tanu_y, 1.6, color=TaunuColor, alpha= ps.RegionAlpha)
+        plt.text(0.7, 1.2, r'$B  \rightarrow K^* \nu \nu $',  color='k', rotation=-48 )
+
+
+        tttauColor = ps.Gray2
+        plt.plot(tta_x, tta_y, color=tttauColor)
+        plt.fill_between(tta_x, 0.2, tta_y, color=tttauColor, alpha= ps.RegionAlpha)
+        plt.text(0.7, 0.85, r'$ tt \rightarrow \tau \tau $',  color='k', rotation= 45)
+
+
     if Coefficient == 'Cee':
         plt.title('$C_9^{ee} = - C_{10}^{ee}$')
         plt.fill_between(yb, yes_minus2, yes_plus2, color=sig2Color2)
@@ -203,56 +254,6 @@ def Which_Plot(Set_option):
         plt.xlabel(r'$y_{\tau b}$')
         plt.ylabel('$y\'_c$')
 
-    # Exclusion region
-    if Leptoquark == 'S3':
-        DDcolor = ps.Gray1
-        ysMin = 0.43
-        plt.hlines(ysMin, yb[0], yb[-1], color=  DDcolor)
-        plt.fill_between(yb, ysMin, 1, color=DDcolor, alpha=ps.RegionAlpha)
-        plt.text(1e-2, 6e-1, '$D - \overline{D}$', color='k')
-
-        KnuColor = ps.Gray2
-        plt.plot(Knu_x, Knu_y, color=KnuColor)
-        plt.fill_between(Knu_x, Knu_y, 1, color=KnuColor, alpha= ps.RegionAlpha)
-        plt.text(3e-1, 2.5e-1, r'$B  \rightarrow K^* \nu \nu $', color='k', rotation=-47 )
-
-        bmuColor = ps.Gray2
-        plt.plot(bmu_x, bmu_y, color=bmuColor)
-        plt.fill_between(bmu_x, 1e-2, bmu_y, color=bmuColor, alpha= ps.RegionAlpha)
-        plt.text(1e-1, 3e-2, r'$b\overline{b}\rightarrow \mu \overline{\mu} $', color='k', rotation= 48)
-
-        pptommColor = ps.Gray1
-        ybMin = 0.72
-        plt.vlines(ybMin, ys[0], ys[-1], color = pptommColor)
-        plt.fill_betweenx(ys, ybMin, 1, color = pptommColor, alpha=ps.RegionAlpha)
-        plt.text(7.5e-1, 4e-2, r'$pp \rightarrow \mu \mu $', color='k', rotation='vertical' )
-
-
-    if Leptoquark == 'S1':
-        ppttColor = ps.Gray1
-        ycMin = 1
-        plt.hlines(ycMin, yt[0], yt[-1], color= ppttColor )
-        plt.fill_between(yt, ycMin, 1.6, color=ppttColor, alpha=ps.RegionAlpha)
-        plt.text(0.3, 1.3, r'$pp \rightarrow \tau \tau$',  color='k')
-
-        ZtautauColor = ps.Gray2
-        ybMin = 1.2
-        plt.vlines(ybMin, yt[0], yt[-1], color = ZtautauColor)
-        plt.fill_betweenx(yt, ybMin, 1.6, color = ZtautauColor, alpha=ps.RegionAlpha)
-        plt.text(1.22, 0.5, r'$Z \rightarrow \tau \tau $',  color= 'k', rotation='vertical' )
-
-
-        TaunuColor = ps.Gray1
-        plt.plot(Tanu_x, Tanu_y, color=TaunuColor)
-        plt.fill_between(Tanu_x, Tanu_y, 1.6, color=TaunuColor, alpha= ps.RegionAlpha)
-        plt.text(0.7, 1.2, r'$B  \rightarrow K^* \nu \nu $',  color='k', rotation=-48 )
-
-
-        tttauColor = ps.Gray2
-        plt.plot(tta_x, tta_y, color=tttauColor)
-        plt.fill_between(tta_x, 0.2, tta_y, color=tttauColor, alpha= ps.RegionAlpha)
-        plt.text(0.7, 0.85, r'$ tt \rightarrow \tau \tau $',  color='k', rotation= 45)
-
 
 
 
@@ -288,7 +289,7 @@ def Save_Plot(Set_option, Format):
 pdf = 'pdf' # Format for plot
 svg = 'svg'
 
-#Save_Plot(Option1, svg)
+Save_Plot(Option1, svg)
 #Save_Plot(Option2, svg)
 #Save_Plot(Option3, svg)
 #Save_Plot(Option4, svg)
